@@ -1,0 +1,6 @@
+@import 'styles/base';
+@import 'neat';
+
+.example {
+  @include grid-column(8);
+}

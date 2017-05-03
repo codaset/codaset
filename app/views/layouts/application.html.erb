@@ -1,15 +1,22 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
     <title>Codaset</title>
     <%= csrf_meta_tags %>
+    <meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name=viewport />
 
     <%= stylesheet_pack_tag 'application', media: 'all' %>
     <%# javascript_include_tag 'application' %>
   </head>
 
   <body>
-    <%= yield %>
+    <header>
+      <div><%= image_tag 'logo.svg', width: 100 %></div>
+    </header>
+
+    <main>
+      <%= yield %>
+    </main>
 
     <%= javascript_pack_tag 'application' %>
   </body>

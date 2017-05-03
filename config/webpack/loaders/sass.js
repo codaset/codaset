@@ -1,6 +1,6 @@
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
 const { env } = require('../configuration.js')
-const neat = require('bourbon-neat').includePaths;
+const includeMedia = require('include-media').includePath
 
 module.exports = {
   test: /\.(scss|sass|css)$/i,
@@ -17,9 +17,9 @@ module.exports = {
       {
         loader: 'sass-loader',
         options: {
-          includePaths: neat
+          includePaths: [includeMedia]
         }
-      },
+      }
     ]
   })
 }

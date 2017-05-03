@@ -1,0 +1,26 @@
+header {
+  background-color: white;
+  padding: 13px;
+
+  > div {
+    @include clearfix;
+    max-width: map-get($breakpoints, 'hd');
+    margin: 0 auto;
+  }
+
+  nav {
+    float: left;
+
+    &:last-child {
+      float: right;
+    }
+  }
+}
+
+#logo {
+  width: 80px;
+  left: 50%;
+  top: 5px;
+  margin-left: -40px;
+  position: absolute;
+}

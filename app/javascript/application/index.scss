@@ -1,10 +1,11 @@
-@import 'include-media';
-
 @import 'styles/variables';
+
+@import 'include-media';
 @import 'styles/reboot';
 
 @import 'styles/mixins/contain';
+@import 'styles/mixins/clearfix';
 
 @import 'styles/base';
-@import 'styles/header';
-@import 'styles/main';
+@import 'styles/components/main';
+@import 'styles/components/header';

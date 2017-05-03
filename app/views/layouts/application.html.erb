@@ -9,20 +9,29 @@
     <title>Codaset</title>
     <%= csrf_meta_tags %>
 
+    <%= javascript_include_tag 'application' %>
     <%= stylesheet_pack_tag 'application', media: 'all' %>
   </head>
 
   <body>
     <header>
-      <div></div>
-      <div id="logo"><%= image_tag 'logo.svg', width: 80 %></div>
       <div>
-        <% if user_signed_in? %>
-          <%= current_user %>
-          <%= link_to 'sign out', destroy_user_session_path, method: :delete, data: { confirm: 'Are you sure?' } %>
-        <% else %>
-          <%= link_to 'sign in', user_github_omniauth_authorize_path %>
-        <% end -%>
+        <nav>
+          <% if user_signed_in? %>
+            <%= link_to 'Issues' %>
+          <% end -%>
+        </nav>
+        <div id="logo">
+          <%= link_to image_tag('logo.svg', width: 80), root_path %>
+        </div>
+        <nav>
+          <% if user_signed_in? %>
+            <%= current_user %>
+            <%= link_to 'Sign Out', destroy_user_session_path, method: :delete, data: { confirm: t('.confirm_sign_out') } %>
+          <% else %>
+            <%= link_to 'Sign In', user_github_omniauth_authorize_path %>
+          <% end -%>
+        </nav>
       </div>
     </header>
 

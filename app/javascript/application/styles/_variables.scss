@@ -1,3 +1,14 @@
+// Breapoints for media queries
+// ----------------------------------------------
+
+$breakpoints: (
+  'phone': 320px,
+  'tablet': 768px,
+  'desktop': 1024px,
+  'hd': 1200px,
+  'uhd': 1440px
+) !default;
+
 // Colours
 // ----------------------------------------------
 

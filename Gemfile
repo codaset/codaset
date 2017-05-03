@@ -36,6 +36,7 @@ group :development do
   gem 'foreman'
   gem 'guard-rspec', '~> 4.7.0', require: false
   gem 'guard-rubocop', require: false
+  gem 'guard-bundler', require: false
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem

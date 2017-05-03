@@ -24,6 +24,7 @@ group :development, :test do
   gem 'factory_girl_rails'
   gem 'faker'
   gem 'rspec-rails', '~> 3.5'
+  gem 'rails-controller-testing'
   gem 'mocha'
 end
 

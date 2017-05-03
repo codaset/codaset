@@ -8,14 +8,14 @@ end
 gem 'rails', '~> 5.1.0'
 gem 'puma', '~> 3.7'
 gem 'mongoid'
+gem 'devise', github: 'plataformatec/devise'
+gem 'omniauth-github'
 gem 'sass-rails'
 gem 'uglifier', '>= 1.3.0'
 gem 'webpacker'
 
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 3.0'
-# Use ActiveModel has_secure_password
-# gem 'bcrypt', '~> 3.1.7'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]

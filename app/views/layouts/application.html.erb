@@ -1,9 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
     <title>Codaset</title>
     <%= csrf_meta_tags %>
-    <meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name=viewport />
+
     <%= stylesheet_pack_tag 'application', media: 'all' %>
   </head>
 
@@ -11,10 +16,20 @@
     <header>
       <div></div>
       <div id="logo"><%= image_tag 'logo.svg', width: 80 %></div>
-      <div></div>
+      <div>
+        <% if user_signed_in? %>
+          <%= current_user %>
+          <%= link_to 'sign out', destroy_user_session_path, method: :delete, data: { confirm: 'Are you sure?' } %>
+        <% else %>
+          <%= link_to 'sign in', user_github_omniauth_authorize_path %>
+        <% end -%>
+      </div>
     </header>
 
     <main>
+      <p class="notice"><%= notice %></p>
+      <p class="alert"><%= alert %></p>
+
       <%= yield %>
     </main>
 

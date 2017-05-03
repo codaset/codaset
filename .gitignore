@@ -24,3 +24,5 @@
 config/secrets.yml.key
 
 .DS_Store
+
+spec/examples.txt

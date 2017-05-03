@@ -1,0 +1,33 @@
+require: rubocop-rspec
+AllCops:
+  DisplayCopNames: true
+  DisplayStyleGuide: true
+  Exclude:
+    - bin/**/*
+    - db/**/*
+    - vendor/**/*
+    - node_modules/**/*
+    - Guardfile
+    - Gemfile
+    - spec/*_helper.rb
+    - config/**/*
+Rails:
+  Enabled: true
+Metrics/LineLength:
+  Max: 100
+Style/Documentation:
+  Enabled: false
+Style/ClassAndModuleChildren:
+  Enabled: false
+Bundler/OrderedGems:
+  Enabled: false
+Style/IndentationConsistency:
+  # The difference between `rails` and `normal` is that the `rails` style
+  # prescribes that in classes and modules the `protected` and `private`
+  # modifier keywords shall be indented the same as public methods and that
+  # protected and private members shall be indented one step more than the
+  # modifiers. Other than that, both styles mean that entities on the same
+  # logical depth shall have the same indentation.
+  EnforcedStyle: rails
+  SupportedStyles:
+    - rails

@@ -19,6 +19,12 @@ gem 'webpacker'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+  gem 'rubocop'
+  gem 'rubocop-rspec'
+  gem 'factory_girl_rails'
+  gem 'faker'
+  gem 'rspec-rails', '~> 3.5'
+  gem 'mocha'
 end
 
 group :development do
@@ -27,6 +33,8 @@ group :development do
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
   gem 'foreman'
+  gem 'guard-rspec', '~> 4.7.0', require: false
+  gem 'guard-rubocop', require: false
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem

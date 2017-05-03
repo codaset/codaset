@@ -1,24 +1,15 @@
-# README
+# Codaset
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+> Project management for software development, that's closer to your code
 
-Things you may want to cover:
+## IDEAS
+- Found in BRANCH X, fixed in BRANCH Y
+- Environment aware
+- Bugs handled separately
+- Individual issues can be QA'd with bugs being associated
+- Organisations
+- Optional projects
 
-* Ruby version
+## Structure
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+User

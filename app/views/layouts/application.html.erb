@@ -18,15 +18,15 @@
     <header>
       <div>
         <nav>
-          <% if user_signed_in? %>
-            <%= link_to 'Issues' %>
+          <% if signed_in? %>
+            <%= link_to 'Create Card', new_card_path(card_context) %>
           <% end -%>
         </nav>
         <div id="logo">
           <%= link_to image_tag('logo.svg', width: 80), root_path %>
         </div>
         <nav>
-          <% if user_signed_in? %>
+          <% if signed_in? %>
             <%= current_user %>
             <%= link_to 'Sign Out', destroy_user_session_path, method: :delete, data: { confirm: t('.confirm_sign_out') } %>
           <% else %>

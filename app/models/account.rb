@@ -15,4 +15,8 @@ class Account
   def to_s
     username
   end
+
+  def to_param
+    username
+  end
 end

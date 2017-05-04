@@ -11,11 +11,16 @@ class Card
   increments :number, scope: :accountable_id
 
   belongs_to :accountable, polymorphic: true
+  belongs_to :creator, class_name: 'User', inverse_of: :owned_cards
 
   validates :title, presence: true
   validates :description, presence: true
 
   def to_i
+    number
+  end
+
+  def to_param
     number
   end
 

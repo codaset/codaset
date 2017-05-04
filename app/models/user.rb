@@ -14,6 +14,7 @@ class User < Account
   field :last_sign_in_ip,    type: String
 
   has_many :cards, as: :accountable
+  has_many :owned_cards, class_name: 'Card', inverse_of: :creator
 
   def self.find_or_create_from_auth_hash(auth_hash)
     find_or_create_by!(github_id: auth_hash[:uid]) do |u|

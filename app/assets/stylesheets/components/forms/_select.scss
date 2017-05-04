@@ -1,0 +1,26 @@
+select {
+  border-bottom: 1px solid $light-gray;
+  padding-bottom: 0;
+  padding-left: 0;
+
+  &:focus {
+    border-bottom: 2px solid $primary-color;
+  }
+
+  + label {
+    cursor: text;
+    display: none;
+    height: 0;
+    opacity: .5;
+    position: relative;
+    top: -42px;
+    transition: top .45s ease-in-out, color .45s ease-in-out, font-size .45s ease-in-out;
+  }
+
+  &:focus,
+  &:not(.empty) {
+    + label {
+      top: -66px;
+    }
+  }
+}

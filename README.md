@@ -12,4 +12,14 @@
 
 ## Structure
 
-User
+### Account
+
+### User
+  - Inherits from Account
+
+### Organisation
+  - Inherits from Account
+
+### Card
+  - Scoped to an Account (`belongs_to :accountable`)
+  - Created by User (`belongs_to :user`)

@@ -8,9 +8,9 @@ class Card
   field :description, type: String
   field :number, type: Integer
 
-  increments :number, scope: :organisation_id
+  increments :number, scope: :accountable_id
 
-  belongs_to :organisation
+  belongs_to :accountable, polymorphic: true
 
   validates :title, presence: true
   validates :description, presence: true

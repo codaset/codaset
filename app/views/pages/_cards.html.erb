@@ -3,6 +3,7 @@
     <tr>
       <th>ID</th>
       <th>Title</th>
+      <th>Accountable</th>
     </tr>
   </thead>
   <tbody>
@@ -10,7 +11,7 @@
       <tr>
         <td><%= card.number %></td>
         <td><%= card.title %></td>
-        <td><%= card.organisation %></td>
+        <td><%= card.accountable_type %>: <%= card.accountable %></td>
       </tr>
     <% end -%>
   </tbody>

@@ -1,5 +1,5 @@
 class CardsController < ApplicationController
-  before_action :set_account
+  before_action :authenticate_user!, :set_account
   before_action :set_card, only: %i[show edit update destroy]
 
   # GET /cards
@@ -9,12 +9,12 @@ class CardsController < ApplicationController
 
   # GET /cards/new
   def new
-    @card = current_user.owned_cards.build(accountable: @account)
+    @card = current_user.created_cards.build(accountable: @account)
   end
 
   # POST /cards
   def create
-    @card = current_user.owned_cards.build(card_params)
+    @card = current_user.created_cards.build(card_params)
     @card.accountable = @account
 
     if @card.save
@@ -45,7 +45,6 @@ class CardsController < ApplicationController
       @account = Account.find_by(username: params[:account_id])
     end
 
-    # Use callbacks to share common setup or constraints between actions.
     def set_card
       @card = @account.cards.find_by(number: params[:id])
     end

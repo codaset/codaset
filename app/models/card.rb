@@ -11,7 +11,7 @@ class Card
   increments :number, scope: :accountable_id
 
   belongs_to :accountable, polymorphic: true
-  belongs_to :creator, class_name: 'User', inverse_of: :owned_cards
+  belongs_to :creator, class_name: 'User', inverse_of: :created_cards
 
   validates :title, presence: true
   validates :description, presence: true

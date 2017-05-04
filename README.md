@@ -16,10 +16,15 @@
 
 ### User
   - Inherits from Account
+  - has_many created_cards
 
 ### Organisation
   - Inherits from Account
 
 ### Card
   - Scoped to an Account (`belongs_to :accountable`)
-  - Created by User (`belongs_to :user`)
+  - Created by creator (`belongs_to :user`)
+
+## Authorization
+
+A User can belong to an Organisation

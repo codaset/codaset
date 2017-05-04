@@ -1,6 +1,10 @@
 require 'rails_helper'
 
 RSpec.describe AccountsController do
+  let(:user) { create :user }
+
+  before { sign_in user }
+
   describe 'GET /:username' do
     context 'when account does not exist' do
       it 'raises a document not found exception' do

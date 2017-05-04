@@ -12,4 +12,11 @@ class User < Account
   field :last_sign_in_at,    type: Time
   field :current_sign_in_ip, type: String
   field :last_sign_in_ip,    type: String
+
+  def self.find_or_create_from_auth_hash(auth_hash)
+    find_or_create_by!(github_id: auth_hash[:uid]) do |u|
+      u.username = auth_hash[:extra][:raw_info][:login]
+      u.email = auth_hash[:info][:email]
+    end
+  end
 end

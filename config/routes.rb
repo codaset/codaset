@@ -10,5 +10,9 @@ Rails.application.routes.draw do
     resources :cards, only: [:new, :create]
   end
 
+  resolve('Card') { |obj| card_path account_id: obj.accountable.to_param, id: obj.to_param }
+  resolve('User') { |obj| account_path obj }
+  resolve('Organisation') { |obj| account_path obj }
+
   root 'pages#index'
 end

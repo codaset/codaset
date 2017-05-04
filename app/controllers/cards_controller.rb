@@ -18,7 +18,7 @@ class CardsController < ApplicationController
     @card.accountable = @account
 
     if @card.save
-      redirect_to card_url(account_id: @account.username, id: @card.number), notice: 'Card was successfully created.'
+      redirect_to @card, notice: 'Card was successfully created.'
     else
       render :new
     end
@@ -27,7 +27,7 @@ class CardsController < ApplicationController
   # PATCH/PUT /cards/1
   def update
     if @card.update(card_params)
-      redirect_to card_url(account_id: @account.username, id: @card.number), notice: 'Card was successfully updated.'
+      redirect_to @card, notice: 'Card was successfully updated.'
     else
       render :edit
     end
@@ -36,7 +36,7 @@ class CardsController < ApplicationController
   # DELETE /cards/1
   def destroy
     @card.destroy
-    redirect_to cards_url(account_id: @account.username), notice: 'Card was successfully destroyed.'
+    redirect_to cards_url(@account.to_param), notice: 'Card was successfully destroyed.'
   end
 
   private

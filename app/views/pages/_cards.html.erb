@@ -10,8 +10,8 @@
     <% cards.each do |card| %>
       <tr>
         <td><%= card.number %></td>
-        <td><%= card.title %></td>
-        <td><%= card.accountable_type %>: <%= card.accountable %></td>
+        <td><%= link_to card.title, card %></td>
+        <td><%= link_to "#{card.accountable_type}:#{card.accountable}", card.accountable %></td>
       </tr>
     <% end -%>
   </tbody>

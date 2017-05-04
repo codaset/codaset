@@ -2,7 +2,7 @@ raise '*** DANGEROUS! Only to be run in development ***' unless Rails.env.develo
 
 puts 'Seeding development DB'
 
-print '== Users... '
+puts '== Users... '
 User.create! github_id: 4614,
              username: 'joelmoss',
              email: 'joel@developwithstyle.com'
@@ -11,13 +11,16 @@ User.create! github_id: 4614,
                username: Faker::Internet.user_name,
                email: Faker::Internet.email
 end
-puts "(#{User.count})"
 
-print '== Cards... '
-User.each do |u|
+puts '== Organisations... '
+(1..10).each do |i|
+  org = Organisation.create! github_id: 600 + i,
+                             username: Faker::Internet.user_name,
+                             email: Faker::Internet.email
+
+  puts '=== Cards... '
   (1..(1..20).to_a.sample).each do |i|
-    Card.create! title: Faker::Lorem.sentence,
-                 description: Faker::Lorem.paragraphs
+    org.cards.create! title: Faker::Lorem.sentence,
+                      description: Faker::Lorem.paragraphs.join("\n\n")
   end
 end
-puts "(#{Card.count})"

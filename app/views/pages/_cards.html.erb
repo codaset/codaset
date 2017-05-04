@@ -1,0 +1,17 @@
+<table>
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Title</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% cards.each do |card| %>
+      <tr>
+        <td><%= card.number %></td>
+        <td><%= card.title %></td>
+        <td><%= card.organisation %></td>
+      </tr>
+    <% end -%>
+  </tbody>
+</table>

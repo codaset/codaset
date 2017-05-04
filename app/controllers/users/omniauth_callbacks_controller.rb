@@ -1,6 +1,6 @@
 class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
   def github
-    user = User.find_or_create_from_auth_hash(auth_hash)
+    user = User.find_or_create_or_update_from_auth_hash(auth_hash)
     if user.persisted?
       sign_in_and_redirect user
       set_flash_message(:notice, :success, kind: 'Github') if is_navigational_format?

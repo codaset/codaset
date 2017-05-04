@@ -21,6 +21,7 @@
         <nav>
           <% if signed_in? %>
             <%= link_to 'Create Card', new_card_path(card_context) %>
+            <%= link_to 'Orgs', organisations_path %>
           <% end -%>
         </nav>
         <div id="logo">

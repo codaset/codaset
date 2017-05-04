@@ -16,6 +16,7 @@ gem 'autoprefixer-rails'
 gem 'uglifier', '>= 1.3.0'
 gem 'webpacker'
 gem 'mongoid-autoinc'
+gem 'octokit'
 
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 3.0'

@@ -1,5 +1,15 @@
 import $ from 'jquery'
 
 $(function () {
-  console.log('Hello World from aWebpacker')
-});
+  // Takes care of form inputs and label animation.
+  $('form').find('input, select, textarea').each(function () {
+    const $input = $(this)
+
+    $input.next('label').show()
+
+    $input.on('focus', () => { $input.removeClass('empty') })
+    $input.on('blur',  () => { $input.val() === '' && $input.addClass('empty') })
+
+    $input.val() === '' && $input.addClass('empty')
+  })
+})

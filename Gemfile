@@ -11,6 +11,8 @@ gem 'mongoid'
 gem 'devise', github: 'plataformatec/devise'
 gem 'omniauth-github'
 gem 'sass-rails'
+gem 'foundation-rails'
+gem 'autoprefixer-rails'
 gem 'uglifier', '>= 1.3.0'
 gem 'webpacker'
 

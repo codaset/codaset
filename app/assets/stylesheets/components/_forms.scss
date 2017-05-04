@@ -1,0 +1,119 @@
+button,
+input,
+optgroup,
+select,
+textarea {
+  font-family: $body-font-family;
+}
+
+// gets rid of the nasty yellow BG color for autofill
+// scss-lint:disable VendorPrefix
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill,
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover,
+textarea:-webkit-autofill:focus,
+select:-webkit-autofill,
+select:-webkit-autofill:hover,
+select:-webkit-autofill:focus {
+  -webkit-box-shadow: 0 0 0 1000px $white inset;
+  transition: background-color 5000s ease-in-out 0s;
+
+  + label {
+    top: -56px;
+  }
+}
+
+select:-webkit-autofill,
+select:-webkit-autofill:hover,
+select:-webkit-autofill:focus {
+  + label {
+    top: -66px;
+  }
+}
+// scss-lint:enable VendorPrefix
+
+// Reference:
+// http://www.google.com/design/spec/components/text-fields.html
+[type="text"],
+[type="password"],
+[type="date"],
+[type="datetime"],
+[type="datetime-local"],
+[type="month"],
+[type="week"],
+[type="email"],
+[type="number"],
+[type="search"],
+[type="tel"],
+[type="time"],
+[type="url"],
+[type="color"],
+textarea {
+  background: transparent;
+  border-bottom: 1px solid $light-gray;
+  border-radius: 0;
+  margin: rem-calc(0 0 8);
+  padding: rem-calc(16 0 8);
+
+  &::-webkit-input-placeholder,
+  &::-webkit-input-placeholder {
+    color: $black;
+  }
+
+  &::placeholder {
+    color: $dark-gray;
+  }
+
+  &:focus {
+    background: transparent;
+    border-bottom: 2px solid $primary-color;
+    position: relative;
+  }
+
+  + label {
+    cursor: text;
+    display: none;
+    height: 0;
+    opacity: .5;
+    position: relative;
+    top: -35px;
+    transition: top .45s ease-in-out, color .45s ease-in-out, font-size .45s ease-in-out;
+  }
+
+  &:focus,
+  &:not(.empty) {
+    + label {
+      top: -56px;
+    }
+  }
+}
+
+select {
+  border-bottom: 1px solid $light-gray;
+  padding-bottom: 0;
+  padding-left: 0;
+
+  &:focus {
+    border-bottom: 2px solid $primary-color;
+  }
+
+  + label {
+    cursor: text;
+    display: none;
+    height: 0;
+    opacity: .5;
+    position: relative;
+    top: -42px;
+    transition: top .45s ease-in-out, color .45s ease-in-out, font-size .45s ease-in-out;
+  }
+
+  &:focus,
+  &:not(.empty) {
+    + label {
+      top: -66px;
+    }
+  }
+}

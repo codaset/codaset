@@ -16,6 +16,7 @@ $breakpoints: (
 $white:  #fff !default;
 $black:  #000 !default;
 $blue:   #0275d8 !default;
+$teal:   #008080 !default;
 
 // Create grayscale
 $gray-dark:                 #292b2c !default;
@@ -25,7 +26,8 @@ $gray-lighter:              #eceeef !default;
 $gray-lightest:             #f7f7f9 !default;
 
 // Reassign color vars to semantic color scheme
-$brand-primary:             $blue !default;
+$primary-color:             $blue !default;
+$secondary-color:           $teal !default;
 
 // Fonts
 // ----------------------------------------------
@@ -56,7 +58,7 @@ $body-color:    $gray-dark !default;
 // Links
 // ----------------------------------------------
 
-$link-color:            $brand-primary !default;
+$link-color:            $primary-color !default;
 $link-decoration:       none !default;
 $link-hover-color:      darken($link-color, 15%) !default;
 $link-hover-decoration: underline !default;

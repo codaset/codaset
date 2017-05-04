@@ -1,0 +1,20 @@
+header {
+  background-color: $white;
+  padding: 13px;
+
+  > div {
+    @include flex-grid-row;
+  }
+
+  nav {
+    @include flex-grid-column;
+
+    &:last-child {
+      text-align: right;
+    }
+  }
+
+  #logo {
+    @include flex-grid-column(shrink);
+  }
+}

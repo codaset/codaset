@@ -1,6 +1,6 @@
 class OrganisationsController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_organisation, only: [:show, :edit, :update, :destroy]
+  before_action :set_organisation, only: %i[show edit update destroy]
 
   # GET /organisations
   def index
@@ -8,8 +8,7 @@ class OrganisationsController < ApplicationController
   end
 
   # GET /organisations/1
-  def show
-  end
+  def show; end
 
   # GET /organisations/new
   def new
@@ -17,8 +16,7 @@ class OrganisationsController < ApplicationController
   end
 
   # GET /organisations/1/edit
-  def edit
-  end
+  def edit; end
 
   # POST /organisations
   def create
@@ -47,6 +45,7 @@ class OrganisationsController < ApplicationController
   end
 
   private
+
     # Use callbacks to share common setup or constraints between actions.
     def set_organisation
       @organisation = Organisation.find(params[:id])

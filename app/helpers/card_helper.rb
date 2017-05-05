@@ -7,7 +7,7 @@ module CardHelper
     new_organisation_card_path @organisation
   end
 
-  def cards_path(*options)
+  def cards_path(*_options)
     [@organisation, :cards]
   end
 end

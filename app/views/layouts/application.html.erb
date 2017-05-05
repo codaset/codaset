@@ -20,7 +20,9 @@
           <%= link_to image_tag('logo-light.png', width: 90, class: 'ui image'), root_path, id: 'logo' %>
         </div>
 
-        <%= link_to 'Orgs', organisations_path, class: 'item' %>
+        <%= link_to_unless_current 'Orgs', organisations_path, class: 'item' do %>
+          <%= link_to 'Orgs', organisations_path, class: 'item active' %>
+        <% end -%>
 
         <div class="right menu">
           <% if signed_in? %>

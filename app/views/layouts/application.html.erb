@@ -2,48 +2,85 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="">
 
     <title>Codaset</title>
     <%= csrf_meta_tags %>
 
-    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600" rel="stylesheet">
     <%= stylesheet_link_tag 'application', media: 'all' %>
     <%= javascript_include_tag 'application' %>
   </head>
-
   <body>
-    <header>
-      <div>
-        <nav>
-          <% if signed_in? %>
-            <%# link_to 'Create Card', new_card_path(card_context) %>
-            <%= link_to 'Orgs', organisations_path %>
-          <% end -%>
-        </nav>
-        <div id="logo">
-          <%= link_to image_tag('logo-light.png', width: 100), root_path %>
-        </div>
-        <nav>
-          <% if signed_in? %>
-            <%= current_user %>
-            <%= link_to 'Sign Out', destroy_user_session_path, method: :delete, data: { confirm: t('.confirm_sign_out') } %>
-          <% else %>
-            <%= link_to 'Sign In', user_github_omniauth_authorize_path %>
-          <% end -%>
-        </nav>
-      </div>
-    </header>
+    <div class="ui fixed inverted menu">
+      <div class="ui container">
+        <%= link_to image_tag('logo-light.png', width: 90, class: 'ui image logo'), root_path,  class: 'header item' %>
+        <%= link_to 'Orgs', organisations_path, class: 'item' %>
 
-    <main>
+        <div class="right menu">
+          <% if signed_in? %>
+            <div class="item"><%= current_user %></div>
+            <%= link_to 'Sign Out', destroy_user_session_path, method: :delete, data: { confirm: t('.confirm_sign_out') }, class: 'item' %>
+          <% else %>
+            <%= link_to 'Sign In', user_github_omniauth_authorize_path, class: 'item' %>
+          <% end -%>
+        </div>
+      </div>
+    </div>
+
+    <main class="ui main container">
       <p class="notice"><%= notice %></p>
       <p class="alert"><%= alert %></p>
 
       <%= yield %>
     </main>
+
+    <div class="ui inverted vertical footer segment">
+      <div class="ui center aligned container">
+        <div class="ui stackable inverted divided grid">
+          <div class="three wide column">
+            <h4 class="ui inverted header">Group 1</h4>
+            <div class="ui inverted link list">
+              <a href="#" class="item">Link One</a>
+              <a href="#" class="item">Link Two</a>
+              <a href="#" class="item">Link Three</a>
+              <a href="#" class="item">Link Four</a>
+            </div>
+          </div>
+          <div class="three wide column">
+            <h4 class="ui inverted header">Group 2</h4>
+            <div class="ui inverted link list">
+              <a href="#" class="item">Link One</a>
+              <a href="#" class="item">Link Two</a>
+              <a href="#" class="item">Link Three</a>
+              <a href="#" class="item">Link Four</a>
+            </div>
+          </div>
+          <div class="three wide column">
+            <h4 class="ui inverted header">Group 3</h4>
+            <div class="ui inverted link list">
+              <a href="#" class="item">Link One</a>
+              <a href="#" class="item">Link Two</a>
+              <a href="#" class="item">Link Three</a>
+              <a href="#" class="item">Link Four</a>
+            </div>
+          </div>
+          <div class="seven wide column">
+            <h4 class="ui inverted header">Bug tracking and project management for software development teams.</h4>
+            <p>Project management for software development, that's closer to your code</p>
+          </div>
+        </div>
+        <div class="ui inverted section divider"></div>
+        <%= link_to image_tag('logo-light.png', width: 90, class: 'ui centered tiny image'), root_path, class: 'ui centered' %>
+        <div class="ui horizontal inverted small divided link list">
+          <a class="item" href="#">Contact Us</a>
+          <a class="item" href="#">Terms and Conditions</a>
+          <a class="item" href="#">Privacy Policy</a>
+        </div>
+      </div>
+    </div>
 
     <%= javascript_pack_tag 'application' %>
   </body>

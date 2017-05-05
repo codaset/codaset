@@ -1,26 +1,4 @@
-header {
-  background-color: $darker-gray;
-  color: $white;
-  padding: 13px;
-
-  > div {
-    @include flex-grid-row;
-  }
-
-  nav {
-    @include flex-grid-column;
-
-    &:last-child {
-      text-align: right;
-    }
-
-    a {
-      color: $white;
-      text-decoration: underline;
-    }
-  }
-
-  #logo {
-    @include flex-grid-column(shrink);
-  }
+.ui.menu .item img.logo {
+  margin-right: 1.5em;
+  width: 4.5em;
 }

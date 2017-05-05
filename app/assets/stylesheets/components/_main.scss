@@ -1,4 +1,4 @@
-main {
-  @include grid-row;
-  @include grid-column;
+.main.container {
+  flex: 1;
+  margin-top: 7em;
 }

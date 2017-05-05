@@ -1,4 +1,4 @@
-<%= form_with(model: card, local: true) do |form| %>
+<%= form_with(model: card, local: true, class: 'ui form') do |form| %>
   <% if card.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(card.errors.count, "error") %> prohibited this card from being saved:</h2>
@@ -11,17 +11,15 @@
     </div>
   <% end %>
 
-  <div class="form_field">
-    <%= form.text_field :title, id: :card_title %>
+  <div class="field">
     <%= form.label :title %>
+    <%= form.text_field :title, id: :card_title %>
   </div>
 
-  <div class="form_field">
-    <%= form.text_area :description, id: :card_description %>
+  <div class="field">
     <%= form.label :description %>
+    <%= form.text_area :description, id: :card_description %>
   </div>
 
-  <div class="form_actions">
-    <%= form.submit %>
-  </div>
+  <%= form.submit class: 'ui button' %>
 <% end %>

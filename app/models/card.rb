@@ -8,17 +8,13 @@ class Card
   field :description, type: String
   field :number, type: Integer
 
-  increments :number, scope: :accountable_id
+  increments :number, scope: :organisation_id
 
-  belongs_to :accountable, polymorphic: true
+  belongs_to :organisation
   belongs_to :creator, class_name: 'User', inverse_of: :created_cards
+  # belongs_to :owner, class_name: 'User', inverse_of: :created_cards
 
-  validates :title, presence: true
-  validates :description, presence: true
-
-  def to_i
-    number
-  end
+  validates :title, :description, presence: true
 
   def to_param
     number

@@ -29,6 +29,8 @@ group :development, :test do
   gem 'faker'
   gem 'rspec-rails', '~> 3.5'
   gem 'rails-controller-testing'
+  gem 'vcr'
+  gem 'webmock'
   gem 'mocha'
 end
 
@@ -41,6 +43,10 @@ group :development do
   gem 'guard-rspec', '~> 4.7.0', require: false
   gem 'guard-rubocop', require: false
   gem 'guard-bundler', require: false
+end
+
+group 'test' do
+  gem 'database_cleaner'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem

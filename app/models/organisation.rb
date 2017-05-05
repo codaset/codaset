@@ -1,5 +1,13 @@
-class Organisation < Account
+class Organisation
   include Mongoid::Document
 
-  has_many :cards, as: :accountable
+  field :name, type: String
+
+  validates :name, presence: true
+
+  has_many :cards
+
+  def to_s
+    name
+  end
 end

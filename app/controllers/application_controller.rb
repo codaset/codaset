@@ -12,6 +12,12 @@ class ApplicationController < ActionController::Base
     end
   end
 
+  protected
+
+    def octokit
+      @octokit ||= Octokit::Client.new(access_token: current_user.github_access_token)
+    end
+
   private
 
     def context_as_project

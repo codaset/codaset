@@ -1,1 +1,13 @@
-Organisation < Account <%= @organisation %>
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @organisation.name %>
+</p>
+
+<%= link_to 'Edit', edit_organisation_path(@organisation) %> |
+<%= link_to 'Back', organisations_path %> |
+<%= link_to 'New card', new_card_path %>
+
+
+<%= render 'pages/cards', cards: @organisation.cards %>

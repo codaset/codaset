@@ -6,17 +6,9 @@ Rails.application.routes.draw do
     delete 'sign_out', to: 'devise/sessions#destroy', as: :destroy_user_session
   end
 
-  resources :organisations, only: [:index, :show]
-
-  get ':id', to: 'accounts#show', as: :account
-  scope ':account_id' do
-    resources :cards, path: '', only: :show, constraints: { id: /\d*/ }
-    resources :cards, only: [:new, :create]
+  resources :organisations do
+    resources :cards
   end
-
-  resolve('Card') { |obj| card_path account_id: obj.accountable.to_param, id: obj.to_param }
-  resolve('User') { |obj| account_path obj }
-  resolve('Organisation') { |obj| account_path obj }
 
   root 'pages#index'
 end

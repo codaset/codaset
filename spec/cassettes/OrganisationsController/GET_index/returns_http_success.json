@@ -1,0 +1,116 @@
+{
+  "http_interactions": [
+    {
+      "request": {
+        "method": "get",
+        "uri": "https://api.github.com/user/orgs",
+        "body": {
+          "encoding": "US-ASCII",
+          "string": ""
+        },
+        "headers": {
+          "Accept": [
+            "application/vnd.github.v3+json"
+          ],
+          "User-Agent": [
+            "Octokit Ruby Gem 4.7.0"
+          ],
+          "Content-Type": [
+            "application/json"
+          ],
+          "Authorization": [
+            "token <<ACCESS_TOKEN>>"
+          ],
+          "Accept-Encoding": [
+            "gzip;q=1.0,deflate;q=0.6,identity;q=0.3"
+          ]
+        }
+      },
+      "response": {
+        "status": {
+          "code": 200,
+          "message": "OK"
+        },
+        "headers": {
+          "Server": [
+            "GitHub.com"
+          ],
+          "Date": [
+            "Thu, 04 May 2017 23:00:25 GMT"
+          ],
+          "Content-Type": [
+            "application/json; charset=utf-8"
+          ],
+          "Transfer-Encoding": [
+            "chunked"
+          ],
+          "Status": [
+            "200 OK"
+          ],
+          "X-Ratelimit-Limit": [
+            "5000"
+          ],
+          "X-Ratelimit-Remaining": [
+            "4936"
+          ],
+          "X-Ratelimit-Reset": [
+            "1493938869"
+          ],
+          "Cache-Control": [
+            "private, max-age=60, s-maxage=60"
+          ],
+          "Vary": [
+            "Accept, Authorization, Cookie, X-GitHub-OTP",
+            "Accept-Encoding"
+          ],
+          "Etag": [
+            "W/\"8b44267da4a647cbe50fab99f35a78b9\""
+          ],
+          "X-Oauth-Scopes": [
+            "read:org, user:email"
+          ],
+          "X-Accepted-Oauth-Scopes": [
+            "admin:org, read:org, repo, user, write:org"
+          ],
+          "X-Github-Media-Type": [
+            "github.v3; format=json"
+          ],
+          "Access-Control-Expose-Headers": [
+            "ETag, Link, X-GitHub-OTP, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset, X-OAuth-Scopes, X-Accepted-OAuth-Scopes, X-Poll-Interval"
+          ],
+          "Access-Control-Allow-Origin": [
+            "*"
+          ],
+          "Content-Security-Policy": [
+            "default-src 'none'"
+          ],
+          "Strict-Transport-Security": [
+            "max-age=31536000; includeSubdomains; preload"
+          ],
+          "X-Content-Type-Options": [
+            "nosniff"
+          ],
+          "X-Frame-Options": [
+            "deny"
+          ],
+          "X-Xss-Protection": [
+            "1; mode=block"
+          ],
+          "X-Served-By": [
+            "769054b6618fd34f3638f01469b229db"
+          ],
+          "X-Github-Request-Id": [
+            "DF67:4A18:21C2060:2982AD2:590BB289"
+          ]
+        },
+        "body": {
+          "encoding": "ASCII-8BIT",
+          "string": "[{\"login\":\"carlhuda\",\"id\":76794,\"url\":\"https://api.github.com/orgs/carlhuda\",\"repos_url\":\"https://api.github.com/orgs/carlhuda/repos\",\"events_url\":\"https://api.github.com/orgs/carlhuda/events\",\"hooks_url\":\"https://api.github.com/orgs/carlhuda/hooks\",\"issues_url\":\"https://api.github.com/orgs/carlhuda/issues\",\"members_url\":\"https://api.github.com/orgs/carlhuda/members{/member}\",\"public_members_url\":\"https://api.github.com/orgs/carlhuda/public_members{/member}\",\"avatar_url\":\"https://avatars1.githubusercontent.com/u/76794?v=3\",\"description\":null},{\"login\":\"bundler\",\"id\":1137638,\"url\":\"https://api.github.com/orgs/bundler\",\"repos_url\":\"https://api.github.com/orgs/bundler/repos\",\"events_url\":\"https://api.github.com/orgs/bundler/events\",\"hooks_url\":\"https://api.github.com/orgs/bundler/hooks\",\"issues_url\":\"https://api.github.com/orgs/bundler/issues\",\"members_url\":\"https://api.github.com/orgs/bundler/members{/member}\",\"public_members_url\":\"https://api.github.com/orgs/bundler/public_members{/member}\",\"avatar_url\":\"https://avatars3.githubusercontent.com/u/1137638?v=3\",\"description\":\"The Ruby language dependency manager\"},{\"login\":\"codaset\",\"id\":11140635,\"url\":\"https://api.github.com/orgs/codaset\",\"repos_url\":\"https://api.github.com/orgs/codaset/repos\",\"events_url\":\"https://api.github.com/orgs/codaset/events\",\"hooks_url\":\"https://api.github.com/orgs/codaset/hooks\",\"issues_url\":\"https://api.github.com/orgs/codaset/issues\",\"members_url\":\"https://api.github.com/orgs/codaset/members{/member}\",\"public_members_url\":\"https://api.github.com/orgs/codaset/public_members{/member}\",\"avatar_url\":\"https://avatars2.githubusercontent.com/u/11140635?v=3\",\"description\":null}]"
+        },
+        "http_version": null
+      },
+      "recorded_at": "Thu, 04 May 2017 23:00:25 GMT"
+    }
+  ],
+  "recorded_with": "VCR 3.0.3"
+}

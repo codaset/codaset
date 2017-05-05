@@ -1,4 +1,15 @@
-.ui.menu .item img.logo {
+.ui.fixed.menu .header.item {
+  padding: 6px 6px 10px;
+}
+
+#logo {
   margin-right: 1.5em;
-  width: 4.5em;
+
+  &:hover {
+    background: inherit;
+  }
+
+  img {
+    width: 5.5em;
+  }
 }

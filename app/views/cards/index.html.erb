@@ -7,6 +7,7 @@
     <tr>
       <th>Title</th>
       <th>Description</th>
+      <th>Closed?</th>
     </tr>
   </thead>
 
@@ -15,6 +16,7 @@
       <tr>
         <td><%= link_to card, card %></td>
         <td><%= card.description %></td>
+        <td><%= card.closed? %></td>
       </tr>
     <% end %>
   </tbody>

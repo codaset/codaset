@@ -15,7 +15,7 @@ class User
   field :e, as: :email,                 type: String
 
   has_many :created_cards, class_name: 'Card', inverse_of: :creator
-  # has_many :assigned_cards, class_name: 'Card', inverse_of: :owner
+  has_and_belongs_to_many :assigned_cards, class_name: 'Card', inverse_of: :assignees
 
   validates :github_id, :username, uniqueness: true
 

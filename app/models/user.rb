@@ -1,5 +1,6 @@
 class User
   include Mongoid::Document
+  include Mongoid::Timestamps::Short
 
   devise :omniauthable, :rememberable, :trackable, omniauth_providers: [:github]
 
@@ -14,6 +15,7 @@ class User
   field :u, as: :username,              type: String
   field :e, as: :email,                 type: String
 
+  # has_many :memberships
   has_many :created_cards, class_name: 'Card', inverse_of: :creator
   has_and_belongs_to_many :assigned_cards, class_name: 'Card', inverse_of: :assignees
 
@@ -35,5 +37,10 @@ class User
 
   def to_param
     username
+  end
+
+  # Returns an Array of organisation records that this User is a member of.
+  def organisations
+    @organisations ||= Organisation.where('m.u' => id)
   end
 end

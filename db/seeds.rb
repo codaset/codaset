@@ -7,7 +7,7 @@ User.create! github_id: 4614,
              github_access_token: ENV.fetch('OCTOKIT_DEV_GITHUB_TOKEN', 'x' * 40),
              username: 'joelmoss',
              email: 'joel@developwithstyle.com'
-(1..9).each do |i|
+(1..39).each do |i|
   User.create! github_id: 100 + i,
                github_access_token: 'x' * 40,
                username: Faker::Internet.user_name,
@@ -19,6 +19,13 @@ user_ids = User.all.pluck(:id)
 puts '== Organisations... '
 (1..10).each do |i|
   org = Organisation.create!(name: Faker::Company.name)
+
+  # Memberships
+  user_ids.sample(rand(0..8)).each do |id|
+    Membership.create organisation: org, user_id: id
+  end
+
+  # Cards
   (0..rand(0..20)).each do |i|
     org.cards.create! title: Faker::Lorem.sentence,
                       description: Faker::Lorem.paragraphs.join("\n\n"),

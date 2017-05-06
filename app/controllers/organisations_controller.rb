@@ -4,19 +4,13 @@ class OrganisationsController < ApplicationController
 
   # GET /organisations
   def index
-    @organisations = Organisation.all
+    @organisations = current_user.organisations
   end
-
-  # GET /organisations/1
-  def show; end
 
   # GET /organisations/new
   def new
     @organisation = Organisation.new
   end
-
-  # GET /organisations/1/edit
-  def edit; end
 
   # POST /organisations
   def create
@@ -48,11 +42,13 @@ class OrganisationsController < ApplicationController
 
     # Use callbacks to share common setup or constraints between actions.
     def set_organisation
-      @organisation = Organisation.find(params[:id])
+      @organisation = current_user.organisations.find(params[:id])
     end
 
     # Only allow a trusted parameter "white list" through.
     def organisation_params
-      params.require(:organisation).permit(:name)
+      params.require(:organisation).permit(:name).tap do |o|
+        o[:memberships_attributes] = [{ user_id: current_user.id, access_level: 'owner' }]
+      end
     end
 end

@@ -1,6 +1,10 @@
 require 'rails_helper'
 
-RSpec.describe 'Organisations', type: :request do
+RSpec.xdescribe 'Organisations', type: :request do
+  let(:user) { create :user }
+
+  before { sign_in user }
+
   describe 'GET /organisations' do
     it 'works! (now write some real specs)' do
       get organisations_path

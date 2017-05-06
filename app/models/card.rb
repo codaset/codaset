@@ -2,10 +2,11 @@ require 'autoinc'
 
 class Card
   include Mongoid::Document
+  include Mongoid::Timestamps::Short
   include Mongoid::Autoinc
 
-  field :title, type: String
-  field :description, type: String
+  field :t, as: :title, type: String
+  field :d, as: :description, type: String
   field :number, type: Integer
   field :closed, type: Boolean, default: false
 

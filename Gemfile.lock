@@ -1,4 +1,13 @@
 GIT
+  remote: https://github.com/mongoid-rspec/mongoid-rspec.git
+  revision: f392d24abc6853895bd959b4916cd82a1b12f6f4
+  specs:
+    mongoid-rspec (4.0.0.pre.alpha1)
+      activesupport (>= 4.0.0)
+      mongoid (~> 6.0)
+      rspec (~> 3.3)
+
+GIT
   remote: https://github.com/plataformatec/devise.git
   revision: 83213569dd77551bb5cac493e2767457970905bc
   specs:
@@ -218,6 +227,9 @@ GEM
     rspec-expectations (3.5.0)
       diff-lcs (>= 1.2.0, < 2.0)
       rspec-support (~> 3.5.0)
+    rspec-its (1.2.0)
+      rspec-core (>= 3.0.0)
+      rspec-expectations (>= 3.0.0)
     rspec-mocks (3.5.0)
       diff-lcs (>= 1.2.0, < 2.0)
       rspec-support (~> 3.5.0)
@@ -313,11 +325,13 @@ DEPENDENCIES
   mocha
   mongoid
   mongoid-autoinc
+  mongoid-rspec!
   octokit
   omniauth-github
   puma (~> 3.7)
   rails (~> 5.1.0)
   rails-controller-testing
+  rspec-its
   rspec-rails (~> 3.5)
   rubocop
   rubocop-rspec

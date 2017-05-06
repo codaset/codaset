@@ -1,37 +1,42 @@
 require 'rails_helper'
 
 RSpec.describe OrganisationsController do
-  before { sign_in create(:user) }
+  before { sign_in user }
 
-  # This should return the minimal set of attributes required to create a valid
-  # Organisation. As you add validations to Organisation, be sure to
-  # adjust the attributes here as well.
-  let(:valid_attributes) do
-    skip('Add a hash of attributes valid for your model')
-  end
-
-  let(:invalid_attributes) do
-    skip('Add a hash of attributes invalid for your model')
-  end
-
-  # This should return the minimal set of values that should be in the session
-  # in order to pass any filters (e.g. authentication) defined in
-  # OrganisationsController. Be sure to keep this updated too.
-  let(:valid_session) { {} }
+  let(:user) { create :user }
 
   describe 'GET #index' do
-    it 'assigns all organisations as @organisations' do
-      organisation = Organisation.create! valid_attributes
-      get :index, params: {}
-      expect(assigns(:organisations)).to eq([organisation])
+    let(:organisations) do
+      create :organisation
+      create :organisation, :with_members
+      [
+        create(:organisation, :with_member, user: user),
+        create(:organisation, :with_member, user: user)
+      ]
+    end
+
+    it 'assigns current users organisations as @organisations' do
+      get :index
+      expect(assigns(:organisations)).to eq(organisations)
     end
   end
 
   describe 'GET #show' do
+    let(:organisation) { create :organisation, :with_member, user: user }
+
     it 'assigns the requested organisation as @organisation' do
-      organisation = Organisation.create! valid_attributes
       get :show, params: { id: organisation.to_param }
       expect(assigns(:organisation)).to eq(organisation)
+    end
+
+    context 'when current user is not a member of the requested organisation' do
+      let(:organisation) { create :organisation }
+
+      it 'raises a document not found exception' do
+        expect do
+          get :show, params: { id: organisation.to_param }
+        end.to raise_error(Mongoid::Errors::DocumentNotFound)
+      end
     end
   end
 
@@ -43,51 +48,71 @@ RSpec.describe OrganisationsController do
   end
 
   describe 'GET #edit' do
+    let(:organisation) { create :organisation, :with_member, user: user }
+
     it 'assigns the requested organisation as @organisation' do
-      organisation = Organisation.create! valid_attributes
       get :edit, params: { id: organisation.to_param }
       expect(assigns(:organisation)).to eq(organisation)
+    end
+
+    context 'when current user is not a member of the requested organisation' do
+      let(:organisation) { create :organisation }
+
+      it 'raises a document not found exception' do
+        expect do
+          get :edit, params: { id: organisation.to_param }
+        end.to raise_error(Mongoid::Errors::DocumentNotFound)
+      end
     end
   end
 
   describe 'POST #create' do
     context 'with valid params' do
+      let(:attributes) { attributes_for :organisation }
+
       it 'creates a new Organisation' do
         expect do
-          post :create, params: { organisation: valid_attributes }
+          post :create, params: { organisation: attributes }
         end.to change(Organisation, :count).by(1)
       end
 
       it 'assigns a newly created organisation as @organisation' do
-        post :create, params: { organisation: valid_attributes }
+        post :create, params: { organisation: attributes }
         expect(assigns(:organisation)).to be_a(Organisation)
       end
 
       it 'persists a newly created organisation as @organisation' do
-        post :create, params: { organisation: valid_attributes }
+        post :create, params: { organisation: attributes }
         expect(assigns(:organisation)).to be_persisted
       end
 
+      it 'assigns the current user as the one and only owner or the organisation' do
+        post :create, params: { organisation: attributes }
+        expect(assigns(:organisation).owners).to eq([user])
+      end
+
       it 'redirects to the created organisation' do
-        post :create, params: { organisation: valid_attributes }
+        post :create, params: { organisation: attributes }
         expect(response).to redirect_to(Organisation.last)
       end
     end
 
     context 'with invalid params' do
+      let(:attributes) { { name: '' } }
+
       it 'assigns a newly created but unsaved organisation as @organisation' do
-        post :create, params: { organisation: invalid_attributes }
+        post :create, params: { organisation: attributes }
         expect(assigns(:organisation)).to be_a_new(Organisation)
       end
 
       it "re-renders the 'new' template" do
-        post :create, params: { organisation: invalid_attributes }
+        post :create, params: { organisation: attributes }
         expect(response).to render_template('new')
       end
     end
   end
 
-  describe 'PUT #update' do
+  xdescribe 'PUT #update' do
     context 'with valid params' do
       let(:new_attributes) do
         skip('Add a hash of attributes valid for your model')
@@ -128,7 +153,7 @@ RSpec.describe OrganisationsController do
     end
   end
 
-  describe 'DELETE #destroy' do
+  xdescribe 'DELETE #destroy' do
     it 'destroys the requested organisation' do
       organisation = Organisation.create! valid_attributes
       expect do

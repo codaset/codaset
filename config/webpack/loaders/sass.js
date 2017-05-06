@@ -1,6 +1,5 @@
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
 const { env } = require('../configuration.js')
-const includeMedia = require('include-media').includePath
 
 module.exports = {
   test: /\.(scss|sass|css)$/i,
@@ -17,7 +16,7 @@ module.exports = {
       {
         loader: 'sass-loader',
         options: {
-          includePaths: [includeMedia]
+          includePaths: []
         }
       }
     ]

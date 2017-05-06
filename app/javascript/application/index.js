@@ -1,15 +1,8 @@
 import $ from 'jquery'
+$.fn.transition = require('semantic-ui-transition')
 
 $(function () {
-  // Takes care of form inputs and label animation.
-  // $('form').find('input, select, textarea').each(function () {
-  //   const $input = $(this)
-
-  //   $input.next('label').show()
-
-  //   $input.on('focus', () => { $input.removeClass('empty') })
-  //   $input.on('blur',  () => { $input.val() === '' && $input.addClass('empty') })
-
-  //   $input.val() === '' && $input.addClass('empty')
-  // })
+  $('.message .close').on('click', function() {
+    $(this).closest('.message').transition('fade')
+  })
 })

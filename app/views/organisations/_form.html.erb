@@ -1,9 +1,8 @@
 <%= form_with(model: organisation, local: true, class: 'ui form') do |form| %>
   <% if organisation.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(organisation.errors.count, "error") %> prohibited this organisation from being saved:</h2>
-
-      <ul>
+    <div class="ui negative message">
+      <div class="header"><%= pluralize(organisation.errors.count, "error") %> prohibited this organisation from being saved:</div>
+      <ul class="list">
       <% organisation.errors.full_messages.each do |message| %>
         <li><%= message %></li>
       <% end %>

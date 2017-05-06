@@ -27,6 +27,8 @@ Bundler/OrderedGems:
   Enabled: false
 RSpec/NestedGroups:
   Enabled: false
+Rails/HasAndBelongsToMany:
+  Enabled: false
 Style/IndentationConsistency:
   # The difference between `rails` and `normal` is that the `rails` style
   # prescribes that in classes and modules the `protected` and `private`

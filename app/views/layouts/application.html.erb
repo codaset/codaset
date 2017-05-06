@@ -36,8 +36,22 @@
     </div>
 
     <main class="ui main container">
-      <p class="notice"><%= notice %></p>
-      <p class="alert"><%= alert %></p>
+      <% if notice %>
+        <div class="ui positive message">
+          <i class="close icon"></i>
+          <div class="header"><%= notice %></div>
+        </div>
+      <% end -%>
+      <% if alert %>
+        <div class="ui negative message">
+          <i class="close icon"></i>
+          <div class="header"><%= alert %></div>
+        </div>
+      <% end -%>
+
+      <% if @page_title %>
+        <h1 class="ui dividing header" id="page_title"><%= @page_title %></h1>
+      <% end -%>
 
       <%= yield %>
     </main>

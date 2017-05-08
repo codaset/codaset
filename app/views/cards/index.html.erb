@@ -1,24 +1,32 @@
 <% page_title 'Cards', head_only: true %>
 
 <div class="ui seven column grid" id="card_board">
-  <% Card::STATES.each do |state_name, closed| %>
-    <div class="column">
-      <% state = @cards.select { |g| g[:_id] == state_name.to_s }.first %>
+  <div class="row">
+    <% @grouped_cards.each do |state| %>
+      <div class="column">
+        <div class="ui label">
+          <%= state[:name] %> <div class="detail"><%= state[:card_count] %></div>
+        </div>
+      </div>
+    <% end -%>
+  </div>
 
-      <h5 class="header"><%= state_name.to_s.humanize %> (<%= state[:count] %>)</h5>
+  <div class="row">
+    <% @grouped_cards.each do |state| %>
+      <div class="column">
+        <% state[:cards].each do |card| %>
+          <%- card = Card.new(card) -%>
 
-      <% state[:cards].each do |card| %>
-        <%- card = Card.new(card) -%>
-
-        <%= link_to card, class: 'ui card' do %>
-          <div class="content">
-            <div><%= card %></div>
-            <div class="meta">#<%= card.number %></div>
-          </div>
-        <% end -%>
-      <% end %>
-    </div>
-  <% end %>
+          <%= link_to card_path(card), class: 'ui card' do %>
+            <div class="content">
+              <div><%= card %></div>
+              <div class="meta">#<%= card.number %></div>
+            </div>
+          <% end -%>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
 </div>
 
 <br>

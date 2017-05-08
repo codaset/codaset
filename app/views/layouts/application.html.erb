@@ -13,7 +13,7 @@
     <%= stylesheet_link_tag 'application', media: 'all' %>
     <%= javascript_include_tag 'application' %>
   </head>
-  <body>
+  <body class="controller_<%= controller_name %> action_<%= action_name %>">
     <div class="ui fixed tiny inverted menu">
       <div class="ui container">
         <div class="header item">

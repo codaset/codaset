@@ -1,7 +1,39 @@
 #card_board {
   font-size: .9em;
+  margin: -1rem .6rem;
+
+  > .row {
+    padding-top: 0;
+
+    .column {
+      padding-left: .35rem;
+      padding-right: .35rem;
+    }
+
+    &:nth-child(1) .column .ui.label {
+      width: 100%;
+
+      .detail {
+        float: right;
+      }
+    }
+
+    &:nth-child(2) .column {
+      height: 600px;
+      overflow-x: hidden;
+      overflow-y: auto;
+    }
+  }
 
   .ui.card {
-    // font-size: .9em;
+    margin: .8em 0;
+
+    &:first-child {
+      margin-top: .1em;
+    }
+
+    &:last-child {
+      margin-bottom: .1em;
+    }
   }
 }

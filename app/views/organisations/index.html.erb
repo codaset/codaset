@@ -1,22 +1,17 @@
 <% page_title 'Organisations', head_only: true %>
 
-<table class="ui table">
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @organisations.each do |organisation| %>
-      <tr>
-        <td><%= link_to organisation.name, organisation %></td>
-        <td><%= link_to 'Edit', edit_organisation_path(organisation) %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+<div class="ui cards">
+  <% @organisations.each do |org| %>
+    <%= link_to org, class: 'ui card' do %>
+      <div class="content">
+        <div class="header"><%= org %></div>
+        <div class="meta">
+          <span><%= pluralize org.members.count, 'member' %></span>
+        </div>
+      </div>
+    <% end -%>
+  <% end %>
+</div>
 
 <br>
 

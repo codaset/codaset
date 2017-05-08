@@ -17,6 +17,12 @@ gem 'uglifier', '>= 1.3.0'
 gem 'webpacker'
 gem 'mongoid-autoinc'
 gem 'octokit'
+gem 'html-pipeline'
+gem 'github-linguist'
+gem 'gemoji'
+gem 'github-markdown'
+gem 'sanitize'
+gem 'rinku'
 
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 3.0'

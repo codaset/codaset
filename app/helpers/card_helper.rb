@@ -10,4 +10,19 @@ module CardHelper
   def cards_path(*_options)
     [@organisation, :cards]
   end
+
+  def html_pipeline
+    context = {
+      asset_root: '/images',
+      gfm: true
+    }
+    HTML::Pipeline.new([HTML::Pipeline::MarkdownFilter,
+                        HTML::Pipeline::SanitizationFilter,
+                        HTML::Pipeline::AutolinkFilter,
+                        HTML::Pipeline::ImageMaxWidthFilter,
+                        # HTML::Pipeline::HttpsFilter,
+                        HTML::Pipeline::MentionFilter,
+                        HTML::Pipeline::EmojiFilter,
+                        HTML::Pipeline::SyntaxHighlightFilter], context)
+  end
 end

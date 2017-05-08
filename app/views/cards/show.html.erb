@@ -1,14 +1,8 @@
 <% page_title @card %>
 
-<p>
-  <strong>Title:</strong>
-  <%= @card.title %>
-</p>
-
-<p>
-  <strong>Description:</strong>
-  <%= @card.description %>
-</p>
+<div>
+  <%= raw html_pipeline.call(@card.description)[:output] %>
+</div>
 
 <p>
   <strong>Closed:</strong>

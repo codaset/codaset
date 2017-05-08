@@ -6,21 +6,26 @@ class Card
   include Mongoid::Autoinc
 
   # State pairs, where the key is the name, and the value is whether the card should be closed.
-  STATES = {
+  OPEN_STATES = {
     backlog: false,
     dev_in_progress: false,
     dev_complete: false,
     qa_in_progress: false,
-    qa_approved: false,
+    qa_approved: false
+  }.freeze
+
+  CLOSED_STATES = {
     resolved: true,
     closed: true
   }.freeze
+
+  STATES = OPEN_STATES.merge(CLOSED_STATES).freeze
 
   field :t, as: :title, type: String
   field :d, as: :description, type: String
   field :n, as: :number, type: Integer
   field :c, as: :closed, type: Boolean, default: false
-  field :s, as: :state, type: String, default: STATES.first.first
+  field :s, as: :state, type: String, default: OPEN_STATES.first.first
 
   increments :number, scope: :organisation_id
 

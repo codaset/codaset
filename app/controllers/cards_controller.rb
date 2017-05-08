@@ -7,7 +7,7 @@ class CardsController < ApplicationController
   # GET /cards
   def index
     @cards = @organisation.cards.group_by_state
-    @grouped_cards = Card::STATES.map do |state_name, closed|
+    @grouped_cards = Card::OPEN_STATES.map do |state_name, closed|
       state = @cards.find { |g| g[:_id] == state_name.to_s }
 
       {

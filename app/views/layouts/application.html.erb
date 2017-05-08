@@ -7,7 +7,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Codaset</title>
+    <title><%= page_title_for_head %></title>
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag 'application', media: 'all' %>
@@ -34,6 +34,8 @@
         </div>
       </div>
     </div>
+
+    <%= semantic_breadcrumbs %>
 
     <main class="ui main container">
       <% if notice %>

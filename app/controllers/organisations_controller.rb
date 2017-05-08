@@ -1,4 +1,6 @@
 class OrganisationsController < ApplicationController
+  semantic_breadcrumb 'Organisations', :organisations_path
+
   before_action :authenticate_user!
   before_action :set_organisation, only: %i[show edit update destroy]
 
@@ -43,6 +45,7 @@ class OrganisationsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_organisation
       @organisation = current_user.organisations.find(params[:id])
+      semantic_breadcrumb @organisation, @organisation
     end
 
     # Only allow a trusted parameter "white list" through.

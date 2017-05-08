@@ -1,6 +1,6 @@
 # Codaset
 
-> Project management for software development, that's closer to your code
+> Project management for software developers, that's closer to your code
 
 ## IDEAS
 - Found in BRANCH X, fixed in BRANCH Y

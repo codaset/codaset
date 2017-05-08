@@ -20,7 +20,6 @@ module CardHelper
                         HTML::Pipeline::SanitizationFilter,
                         HTML::Pipeline::AutolinkFilter,
                         HTML::Pipeline::ImageMaxWidthFilter,
-                        # HTML::Pipeline::HttpsFilter,
                         HTML::Pipeline::MentionFilter,
                         HTML::Pipeline::EmojiFilter,
                         HTML::Pipeline::SyntaxHighlightFilter], context)

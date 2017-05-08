@@ -3,7 +3,11 @@ FactoryGirl.define do
     title { Faker::Lorem.sentence }
     description { Faker::Lorem.paragraphs.join("\n\n") }
 
-    association :accountable
+    association :organisation
     association :creator, factory: :user
+
+    trait :closed do
+      closed true
+    end
   end
 end

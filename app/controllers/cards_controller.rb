@@ -42,7 +42,7 @@ class CardsController < ApplicationController
   private
 
     def set_organisation
-      @organisation = Organisation.find(params[:organisation_id])
+      @organisation = current_user.organisations.find(params[:organisation_id])
     end
 
     def set_card

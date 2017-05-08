@@ -26,6 +26,7 @@
     "react": "^15.5.4",
     "react-dom": "^15.5.4",
     "sass-loader": "^6.0.3",
+    "semantic-ui-dropdown": "^2.2.10",
     "semantic-ui-react": "^0.68.2",
     "semantic-ui-transition": "^2.2.10",
     "style-loader": "^0.17.0",

@@ -20,8 +20,18 @@
           <%= link_to image_tag('logo-light.png', width: 90, class: 'ui image'), root_path, id: 'logo' %>
         </div>
 
-        <%= link_to_unless_current 'Orgs', organisations_path, class: 'item' do %>
-          <%= link_to 'Orgs', organisations_path, class: 'item active' %>
+        <% if signed_in? %>
+          <div class="ui simple dropdown item">
+            <%= @organisation && !@organisation.new_record? ? @organisation : 'Organisations' %>
+            <i class="dropdown icon"></i>
+            <div class="menu inverted">
+              <%- current_user.organisations.each do |org| -%>
+                <%= link_to org, org, class: 'item' %>
+              <% end -%>
+              <div class="divider"></div>
+              <%= link_to 'New Organisation...', new_organisation_path, class: 'item' %>
+            </div>
+          </div>
         <% end -%>
 
         <div class="right menu">

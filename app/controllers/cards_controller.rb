@@ -1,5 +1,7 @@
 class CardsController < ApplicationController
-  before_action :authenticate_user!, :set_organisation
+  include RequireParentOrganisation
+
+  prepend_before_action :authenticate_user!
   before_action :set_card, only: %i[show edit update destroy]
 
   # GET /cards
@@ -40,10 +42,6 @@ class CardsController < ApplicationController
   end
 
   private
-
-    def set_organisation
-      @organisation = current_user.organisations.find(params[:organisation_id])
-    end
 
     def set_card
       @card = @organisation.cards.find_by(number: params[:id])

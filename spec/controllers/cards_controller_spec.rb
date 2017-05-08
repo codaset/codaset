@@ -7,15 +7,14 @@ RSpec.describe CardsController do
 
   before { sign_in user }
 
+  it 'includes RequireParentOrganisation concern' do
+    expect(described_class.ancestors).to include(RequireParentOrganisation)
+  end
+
   describe 'GET #index' do
     let(:cards) do
       create :card
       create_list(:card, 2, organisation: organisation)
-    end
-
-    it 'assigns the requested organisation as @organisation' do
-      get :index, params: { organisation_id: organisation.to_param }
-      expect(assigns(:organisation)).to eq(organisation)
     end
 
     it 'assigns current organisations cards as @cards' do
@@ -37,16 +36,6 @@ RSpec.describe CardsController do
       it 'raises a document not found exception' do
         expect do
           get :show, params: { organisation_id: organisation.to_param, id: 1 }
-        end.to raise_error(Mongoid::Errors::DocumentNotFound)
-      end
-    end
-
-    context 'when current_user is not a member of the organisation' do
-      let(:organisation) { create :organisation, :with_member }
-
-      it 'raises a document not found exception' do
-        expect do
-          get :show, params: { organisation_id: organisation.to_param, id: card.to_param }
         end.to raise_error(Mongoid::Errors::DocumentNotFound)
       end
     end

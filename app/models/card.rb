@@ -37,4 +37,9 @@ class Card
   def to_s
     title
   end
+
+  def self.group_by_state
+    query = where(nil).group(_id: '$s', :count.sum => 1, :cards.push => '$$ROOT')
+    collection.aggregate(query.pipeline)
+  end
 end

@@ -1,19 +1,18 @@
-<% page_title @card %>
+<% page_title "##{@card.number} #{@card}" %>
 
-<div>
-  <%= raw html_pipeline.call(@card.description)[:output] %>
+<div class="ui grid">
+  <div class="ten wide column">
+    <%= raw html_pipeline.call(@card.description)[:output] %>
+  </div>
+  <div class="six wide column">
+    <p>
+      <strong>Closed:</strong>
+      <%= @card.closed? %>
+    </p>
+
+    <p>
+      <strong>State:</strong>
+      <%= @card.state %>
+    </p>
+  </div>
 </div>
-
-<p>
-  <strong>Closed:</strong>
-  <%= @card.closed? %>
-</p>
-
-<p>
-  <strong>State:</strong>
-  <%= @card.state %>
-</p>
-
-
-
-<%= link_to 'Back', cards_path %>

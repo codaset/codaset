@@ -1,24 +1,25 @@
-<% page_title 'Cards' %>
+<% page_title 'Cards', head_only: true %>
 
-<table class="ui table">
-  <thead>
-    <tr>
-      <th>Title</th>
-      <th>Description</th>
-      <th>Closed?</th>
-    </tr>
-  </thead>
+<div class="ui seven column grid" id="card_board">
+  <% Card::STATES.each do |state_name, closed| %>
+    <div class="column">
+      <% state = @cards.select { |g| g[:_id] == state_name.to_s }.first %>
 
-  <tbody>
-    <% @cards.each do |card| %>
-      <tr>
-        <td><%= link_to card, card %></td>
-        <td><%= card.description %></td>
-        <td><%= card.closed? %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+      <h5 class="header"><%= state_name.to_s.humanize %> (<%= state[:count] %>)</h5>
+
+      <% state[:cards].each do |card| %>
+        <%- card = Card.new(card) -%>
+
+        <%= link_to card, class: 'ui card' do %>
+          <div class="content">
+            <div><%= card %></div>
+            <div class="meta">#<%= card.number %></div>
+          </div>
+        <% end -%>
+      <% end %>
+    </div>
+  <% end %>
+</div>
 
 <br>
 

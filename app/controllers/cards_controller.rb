@@ -6,7 +6,11 @@ class CardsController < ApplicationController
 
   # GET /cards
   def index
-    @cards = @organisation.cards
+    @cards = @organisation.cards.group_by_state
+    # Card::STATES.each do |state_name, closed|
+    #   state = @cards.find { |g| g[:_id] == state_name }
+
+    # end
   end
 
   # GET /cards/new

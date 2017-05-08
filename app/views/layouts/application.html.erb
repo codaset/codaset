@@ -22,16 +22,21 @@
 
         <% if signed_in? %>
           <div class="ui simple dropdown item">
-            <%= @organisation && !@organisation.new_record? ? @organisation : 'Organisations' %>
+            <%= current_organisation || 'Organisations' %>
             <i class="dropdown icon"></i>
             <div class="menu inverted">
               <%- current_user.organisations.each do |org| -%>
-                <%= link_to org, org, class: 'item' %>
+                <%= link_to org, org, class: current_organisation == org ? 'item active' : 'item' %>
               <% end -%>
               <div class="divider"></div>
-              <%= link_to 'New Organisation...', new_organisation_path, class: 'item' %>
+              <%= link_to_unless_current 'New Organisation', new_organisation_path, class: 'item' do %>
+                <%= link_to 'New Organisation', new_organisation_path, class: 'item active' %>
+              <% end -%>
             </div>
           </div>
+          <%= link_to_unless_current 'Create Card', new_card_path, class: 'item' do %>
+            <%= link_to 'Create Card', new_card_path, class: 'item active' %>
+          <% end if current_organisation -%>
         <% end -%>
 
         <div class="right menu">

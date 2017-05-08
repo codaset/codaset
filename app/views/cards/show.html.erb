@@ -10,4 +10,16 @@
   <%= @card.description %>
 </p>
 
+<p>
+  <strong>Closed:</strong>
+  <%= @card.closed? %>
+</p>
+
+<p>
+  <strong>State:</strong>
+  <%= @card.state %>
+</p>
+
+
+
 <%= link_to 'Back', cards_path %>

@@ -5,10 +5,22 @@ class Card
   include Mongoid::Timestamps::Short
   include Mongoid::Autoinc
 
+  # State pairs, where the key is the name, and the value is whether the card should be closed.
+  STATES = {
+    backlog: false,
+    dev_in_progress: false,
+    dev_complete: false,
+    qa_in_progress: false,
+    qa_approved: false,
+    resolved: true,
+    closed: true
+  }.freeze
+
   field :t, as: :title, type: String
   field :d, as: :description, type: String
-  field :number, type: Integer
-  field :closed, type: Boolean, default: false
+  field :n, as: :number, type: Integer
+  field :c, as: :closed, type: Boolean, default: false
+  field :s, as: :state, type: String, default: STATES.first.first
 
   increments :number, scope: :organisation_id
 

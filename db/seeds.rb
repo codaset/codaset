@@ -27,9 +27,12 @@ puts '== Organisations... '
 
   # Cards
   (0..rand(0..20)).each do |i|
+    state = Card::STATES.to_a.sample
     org.cards.create! title: Faker::Lorem.sentence,
                       description: Faker::Lorem.paragraphs.join("\n\n"),
-                      creator: user_ids.sample
+                      creator: user_ids.sample,
+                      state: state.first,
+                      closed: state.last
                       # assignees: user_ids.sample(rand(0..3))
   end
 end

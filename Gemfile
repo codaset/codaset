@@ -8,6 +8,7 @@ end
 gem 'rails', '~> 5.1.0'
 gem 'puma', '~> 3.7'
 gem 'mongoid'
+gem 'jbuilder'
 gem 'devise', github: 'plataformatec/devise'
 gem 'omniauth-github'
 gem 'sass-rails'
